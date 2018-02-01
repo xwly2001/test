@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdm:MDMModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdm="http://www.ibm.com/xmlns/prod/mdm/tools/model/core_v6.ecore" name="NBCMCPComposites" id="1" customNature="module" serviceNamespace="http://compositeTxn.mdm.mcp.nbc.ca" implPackageName="ca.nbc.mcp.mdm.compositeTxn" componentTypeMetadataIdForComponent="2" componentTypeMetadataIdForController="3" startId="1630000" maxOffset="99999" MDMApplication="mdm://MDMSharedResources#/" asiDefinitionRequestAdapterId="4" asiDefinitionResponseAdapterId="5">
+  <MDMPackage name="NBCMCPComposites" id="6" componentTypeMetadataIdForComponent="7" componentTypeMetadataIdForController="8">
+    <members xsi:type="mdm:MDMInquiry" name="getNBCPartyIdByIdentifier" id="9" externalTxnKeyId="10" internalTxnId="12" businessInternalTxnId="13" businessTxReqRespInputId="14" businessTxReqRespOutputId="15" internalTxnKeyId="11" internalTxReqRespInputId="16" internalTxReqRespOutputId="17" responseType="mdm://Party#//Party/@members.Party" componentTypeMetadataIdForBusinessProxies="18">
+      <MDMErrorReason id="19" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="20" typeCodeForComponentId="22" typeCodeForBusinessProxyId="21"/>
+      <MDMParameter name="AdminSystemType" id="23" businessTxReqRespId="24" internalTxReqRespId="25"/>
+      <MDMParameter name="AdminPartyId" id="26" businessTxReqRespId="27" internalTxReqRespId="28"/>
+      <MDMParameter name="IdentificationType" id="29" businessTxReqRespId="30" internalTxReqRespId="31"/>
+      <MDMParameter name="IdentificationNumber" id="32" businessTxReqRespId="33" internalTxReqRespId="34"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="maintainNBCContract" id="35" externalTxnKeyId="36" internalTxnId="38" businessInternalTxnId="39" businessTxReqRespInputId="40" businessTxReqRespOutputId="41" internalTxnKeyId="37" internalTxReqRespInputId="42" internalTxReqRespOutputId="43" responseType="mdm://FinancialServices#//Financial/@members.Contract/@members.Contract" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="44" actionCategory="update" requestType="mdm://FinancialServices#//Financial/@members.Contract/@members.Contract">
+      <MDMErrorReason id="45" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.UPDERR" typeCodeId="46" typeCodeForComponentId="48" typeCodeForBusinessProxyId="47"/>
+      <baseTransactions id="49" transaction="mdm:MDMInquiry mdm://FinancialServices#//Financial/@members.getContract"/>
+      <baseTransactions id="50" transaction="mdm:MDMTxn mdm://FinancialServices#//Financial/@members.addContract"/>
+      <baseTransactions id="51" transaction="mdm:MDMTxn mdm://FinancialServices#//Financial/@members.updateContract"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="removeNBCQualityStatusAlert" id="52" externalTxnKeyId="53" internalTxnId="55" businessInternalTxnId="56" businessTxReqRespInputId="57" businessTxReqRespOutputId="58" internalTxnKeyId="54" internalTxReqRespInputId="59" internalTxReqRespOutputId="60" responseType="mdm://NBCMCPPartyData#//NBCMCPPartyData/@members.XNBCQualityStatusAlert" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="61" actionCategory="update" requestType="mdm://NBCMCPPartyData#//NBCMCPPartyData/@members.XNBCQualityStatusAlert">
+      <MDMErrorReason id="62" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.UPDERR" typeCodeId="63" typeCodeForComponentId="65" typeCodeForBusinessProxyId="64"/>
+      <baseTransactions id="66" transaction="mdm:MDMUpdateRecord mdm://NBCMCPPartyData#//NBCMCPPartyData/@members.XNBCQualityStatusAlert/@MDMUpdateRecord"/>
+    </members>
+    <members xsi:type="mdm:MDMInquiry" name="getNBCQualityStatusAlertByBusinessKeys" id="67" externalTxnKeyId="68" internalTxnId="70" businessInternalTxnId="71" businessTxReqRespInputId="72" businessTxReqRespOutputId="73" internalTxnKeyId="69" internalTxReqRespInputId="74" internalTxReqRespOutputId="75" responseType="mdm://NBCMCPPartyData#//NBCMCPPartyData/@members.XNBCQualityStatusAlert" componentTypeMetadataIdForBusinessProxies="76">
+      <MDMErrorReason id="77" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="78" typeCodeForComponentId="80" typeCodeForBusinessProxyId="79"/>
+      <MDMParameter name="InstancePK" id="81" businessTxReqRespId="82" internalTxReqRespId="83"/>
+      <MDMParameter name="EntityName" id="84" businessTxReqRespId="85" internalTxReqRespId="86"/>
+      <MDMParameter name="GroupName" id="87" businessTxReqRespId="88" internalTxReqRespId="89"/>
+      <MDMParameter name="GroupIDPK" id="90" businessTxReqRespId="91" internalTxReqRespId="92"/>
+      <MDMParameter name="ComponentType" id="93" businessTxReqRespId="94" internalTxReqRespId="95"/>
+      <MDMParameter name="ReasonCode" id="96" businessTxReqRespId="97" internalTxReqRespId="98"/>
+      <MDMParameter name="ErrorType" id="99" businessTxReqRespId="100" internalTxReqRespId="101"/>
+    </members>
+    <members xsi:type="mdm:MDMInquiry" name="getNBCAllPartyAddressesByIdentifierCR" id="102" externalTxnKeyId="103" internalTxnId="105" businessInternalTxnId="106" businessTxReqRespInputId="107" businessTxReqRespOutputId="108" internalTxnKeyId="104" internalTxReqRespInputId="109" internalTxReqRespOutputId="110" responseMany="true" responseType="mdm://Party#//Party/@members.PartyAddress" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="111">
+      <MDMErrorReason id="112" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="113" typeCodeForComponentId="115" typeCodeForBusinessProxyId="114"/>
+      <MDMParameter name="AdminSystemType" id="116" optional="true" businessTxReqRespId="117" internalTxReqRespId="118"/>
+      <MDMParameter name="AdminPartyId" id="119" optional="true" businessTxReqRespId="120" internalTxReqRespId="121"/>
+      <MDMParameter name="IdentificationType" id="122" optional="true" businessTxReqRespId="123" internalTxReqRespId="124"/>
+      <MDMParameter name="IdentificationNumber" id="125" optional="true" businessTxReqRespId="126" internalTxReqRespId="127"/>
+    </members>
+    <members xsi:type="mdm:MDMInquiry" name="getNBCAllPartyContactMethodsByIdentifierCR" id="128" externalTxnKeyId="129" internalTxnId="131" businessInternalTxnId="132" businessTxReqRespInputId="133" businessTxReqRespOutputId="134" internalTxnKeyId="130" internalTxReqRespInputId="135" internalTxReqRespOutputId="136" responseMany="true" responseType="mdm://Party#//Party/@members.PartyContactMethod" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="137">
+      <MDMErrorReason id="138" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="139" typeCodeForComponentId="141" typeCodeForBusinessProxyId="140"/>
+      <MDMParameter name="AdminSystemType" id="142" optional="true" businessTxReqRespId="143" internalTxReqRespId="144"/>
+      <MDMParameter name="AdminPartyId" id="145" optional="true" businessTxReqRespId="146" internalTxReqRespId="147"/>
+      <MDMParameter name="IdentificationType" id="148" optional="true" businessTxReqRespId="149" internalTxReqRespId="150"/>
+      <MDMParameter name="IdentificationNumber" id="151" optional="true" businessTxReqRespId="152" internalTxReqRespId="153"/>
+    </members>
+    <members xsi:type="mdm:MDMMessage" name="EmailUpdate" id="154" componentTypeMetadataId="155" errorReasonTpCdForFVERR="157" bObjId="156" lastUpdateDateBObjFieldId="158" lastUpdateUserBObjFieldId="159" historyActionCodeBObjFieldId="161" historyCreateDateBObjFieldId="162" historyEndDateBObjFieldId="164" historyCreatedByBObjFieldId="163" lastUpdateTxIdBObjFieldId="160" historyIdPkBObjFieldId="165">
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="AdminSystemType" id="166" optional="true" bObjFieldId="167">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="AdminSystemKey" id="168" optional="true" bObjFieldId="169">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="EmailAddress" id="170" optional="true" bObjFieldId="171">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="EmailAddressType" id="172" optional="true" bObjFieldId="173">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="MaintainNBCEmail" id="174" externalTxnKeyId="175" internalTxnId="177" businessInternalTxnId="178" businessTxReqRespInputId="179" businessTxReqRespOutputId="180" internalTxnKeyId="176" internalTxReqRespInputId="181" internalTxReqRespOutputId="182" responseType="mdm://Party#//Party/@members.PartyContactMethod" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="183" requestType="#//NBCMCPComposites/@members.EmailUpdate">
+      <MDMErrorReason id="184" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="185" typeCodeForComponentId="187" typeCodeForBusinessProxyId="186"/>
+      <MDMErrorReason name="MAINTAINNBCEMAIL_NO_PARTY_FOUND" id="191" message="No person record found for admin system key provided." errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="192" typeCodeForComponentId="194" typeCodeForBusinessProxyId="193"/>
+      <MDMErrorReason name="MAINTAINNBCEMAIL_EMAIL_REQUIRED" id="195" message="The following is required: EmailAddress" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="196" typeCodeForComponentId="198" typeCodeForBusinessProxyId="197"/>
+      <MDMErrorReason name="MAINTAINNBCEMAIL_ADMINSYSTEMKEY_REQUIRED" id="199" message="The following is required: AdminSystemKey" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="200" typeCodeForComponentId="202" typeCodeForBusinessProxyId="201"/>
+      <baseTransactions id="188" transaction="mdm:MDMInquiry mdm://Party#//CoreParty/@members.getPartyByAdminSysKey"/>
+      <baseTransactions id="189" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyContactMethod"/>
+      <baseTransactions id="190" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.updatePartyContactMethod"/>
+    </members>
+    <members xsi:type="mdm:MDMInquiry" name="getNBCAllPartyIdentificationsByIdentifierCR" id="263" externalTxnKeyId="264" internalTxnId="266" businessInternalTxnId="267" businessTxReqRespInputId="268" businessTxReqRespOutputId="269" internalTxnKeyId="265" internalTxReqRespInputId="270" internalTxReqRespOutputId="271" responseMany="true" responseType="#//NBCMCPComposites/@members.XNBCPartyIdentificationItem" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="272">
+      <MDMErrorReason id="273" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="274" typeCodeForComponentId="276" typeCodeForBusinessProxyId="275"/>
+      <MDMParameter name="AdminSystemType" id="277" optional="true" businessTxReqRespId="278" internalTxReqRespId="279"/>
+      <MDMParameter name="AdminPartyId" id="280" optional="true" businessTxReqRespId="281" internalTxReqRespId="282"/>
+      <MDMParameter name="IdentificationType" id="283" optional="true" businessTxReqRespId="284" internalTxReqRespId="285"/>
+      <MDMParameter name="IdentificationNumber" id="286" optional="true" businessTxReqRespId="287" internalTxReqRespId="288"/>
+    </members>
+    <members xsi:type="mdm:MDMMessage" name="XNBCPartyMatchKey" id="307" componentTypeMetadataId="308" errorReasonTpCdForFVERR="310" bObjId="309" lastUpdateDateBObjFieldId="311" lastUpdateUserBObjFieldId="312" historyActionCodeBObjFieldId="314" historyCreateDateBObjFieldId="315" historyEndDateBObjFieldId="317" historyCreatedByBObjFieldId="316" lastUpdateTxIdBObjFieldId="313" historyIdPkBObjFieldId="318">
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IdentificationType" id="938" optional="true" bObjFieldId="939">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IdentificationValue" id="653" optional="true" bObjFieldId="654">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IdentificationNumber" id="623" optional="true" bObjFieldId="624">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="AdminPartyId1" id="629" optional="true" bObjFieldId="630">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="AdminSystemType1" id="940" optional="true" bObjFieldId="941">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="AdminSystemValue1" id="635" optional="true" bObjFieldId="636">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="AdminPartyId2" id="641" optional="true" bObjFieldId="642">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="AdminSystemType2" id="946" optional="true" bObjFieldId="947">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="AdminSystemValue2" id="647" optional="true" bObjFieldId="648">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+    </members>
+    <members xsi:type="mdm:MDMMessage" name="XNBCPartySysKey" id="331" componentTypeMetadataId="332" errorReasonTpCdForFVERR="334" bObjId="333" lastUpdateDateBObjFieldId="335" lastUpdateUserBObjFieldId="336" historyActionCodeBObjFieldId="338" historyCreateDateBObjFieldId="339" historyEndDateBObjFieldId="341" historyCreatedByBObjFieldId="340" lastUpdateTxIdBObjFieldId="337" historyIdPkBObjFieldId="342">
+      <MDMContainment name="XNBCPartyMatchKey" id="343" containedEntity="#//NBCMCPComposites/@members.XNBCPartyMatchKey" bObjFieldId="344">
+        <MDMErrorReason id="345" messageKey="CoreUtils_ReferenceInvalid" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.DIERR" typeCodeId="346" typeCodeForComponentId="348" typeCodeForBusinessProxyId="347"/>
+      </MDMContainment>
+      <MDMContainment name="TCRMAdminContEquivBObj" id="349" containedEntity="mdm://Party#//Party/@members.PartyAdminSysKey" bObjFieldId="350">
+        <MDMErrorReason id="351" messageKey="CoreUtils_ReferenceInvalid" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.DIERR" typeCodeId="352" typeCodeForComponentId="354" typeCodeForBusinessProxyId="353"/>
+      </MDMContainment>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="addNBCPartySysKeyCR" id="355" externalTxnKeyId="356" internalTxnId="358" businessInternalTxnId="359" businessTxReqRespInputId="360" businessTxReqRespOutputId="361" internalTxnKeyId="357" internalTxReqRespInputId="362" internalTxReqRespOutputId="363" responseType="mdm://Party#//Party/@members.PartyAdminSysKey" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="364" requestType="#//NBCMCPComposites/@members.XNBCPartySysKey">
+      <MDMErrorReason id="365" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="366" typeCodeForComponentId="368" typeCodeForBusinessProxyId="367"/>
+      <baseTransactions id="369" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyAdminSysKey"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="removeNBCPartySysKeyCR" id="370" externalTxnKeyId="371" internalTxnId="373" businessInternalTxnId="374" businessTxReqRespInputId="375" businessTxReqRespOutputId="376" internalTxnKeyId="372" internalTxReqRespInputId="377" internalTxReqRespOutputId="378" responseType="mdm://Party#//Party/@members.PartyAdminSysKey" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="379" actionCategory="update" requestType="#//NBCMCPComposites/@members.XNBCPartySysKey">
+      <MDMErrorReason id="380" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.UPDERR" typeCodeId="381" typeCodeForComponentId="383" typeCodeForBusinessProxyId="382"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="addNBCPartyContactMethodCR" id="384" externalTxnKeyId="385" internalTxnId="387" businessInternalTxnId="388" businessTxReqRespInputId="389" businessTxReqRespOutputId="390" internalTxnKeyId="386" internalTxReqRespInputId="391" internalTxReqRespOutputId="392" responseType="mdm://Party#//Party/@members.PartyContactMethod" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="393" requestType="mdm://Party#//Party/@members.PartyContactMethod">
+      <MDMErrorReason id="394" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="395" typeCodeForComponentId="397" typeCodeForBusinessProxyId="396"/>
+      <baseTransactions id="398" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyContactMethod"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="updateNBCPartyContactMethodCR" id="399" externalTxnKeyId="400" internalTxnId="402" businessInternalTxnId="403" businessTxReqRespInputId="404" businessTxReqRespOutputId="405" internalTxnKeyId="401" internalTxReqRespInputId="406" internalTxReqRespOutputId="407" responseType="mdm://Party#//Party/@members.PartyContactMethod" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="408" actionCategory="update" requestType="mdm://Party#//Party/@members.PartyContactMethod">
+      <MDMErrorReason id="409" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.UPDERR" typeCodeId="410" typeCodeForComponentId="412" typeCodeForBusinessProxyId="411"/>
+      <baseTransactions id="413" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.updatePartyContactMethod"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="addNBCPartyAddressCR" id="414" externalTxnKeyId="415" internalTxnId="417" businessInternalTxnId="418" businessTxReqRespInputId="419" businessTxReqRespOutputId="420" internalTxnKeyId="416" internalTxReqRespInputId="421" internalTxReqRespOutputId="422" responseType="mdm://Party#//Party/@members.PartyAddress" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="423" requestType="mdm://Party#//Party/@members.PartyAddress">
+      <MDMErrorReason id="424" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="425" typeCodeForComponentId="427" typeCodeForBusinessProxyId="426"/>
+      <baseTransactions id="428" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyAddress"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="updateNBCPartyAddressCR" id="429" externalTxnKeyId="430" internalTxnId="432" businessInternalTxnId="433" businessTxReqRespInputId="434" businessTxReqRespOutputId="435" internalTxnKeyId="431" internalTxReqRespInputId="436" internalTxReqRespOutputId="437" responseType="mdm://Party#//Party/@members.PartyAddress" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="438" actionCategory="update" requestType="mdm://Party#//Party/@members.PartyAddress">
+      <MDMErrorReason id="439" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.UPDERR" typeCodeId="440" typeCodeForComponentId="442" typeCodeForBusinessProxyId="441"/>
+      <baseTransactions id="443" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.updatePartyAddress"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="addNBCPartyIdentificationCR" id="444" externalTxnKeyId="445" internalTxnId="447" businessInternalTxnId="448" businessTxReqRespInputId="449" businessTxReqRespOutputId="450" internalTxnKeyId="446" internalTxReqRespInputId="451" internalTxReqRespOutputId="452" responseType="#//NBCMCPComposites/@members.XNBCPartyIdentificationItem" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="453" requestType="#//NBCMCPComposites/@members.XNBCPartyIdentificationItem">
+      <MDMErrorReason id="454" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="455" typeCodeForComponentId="457" typeCodeForBusinessProxyId="456"/>
+      <baseTransactions id="458" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyIdentification"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="updateNBCPartyIdentificationCR" id="459" externalTxnKeyId="460" internalTxnId="462" businessInternalTxnId="463" businessTxReqRespInputId="464" businessTxReqRespOutputId="465" internalTxnKeyId="461" internalTxReqRespInputId="466" internalTxReqRespOutputId="467" responseType="#//NBCMCPComposites/@members.XNBCPartyIdentificationItem" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="468" actionCategory="view" requestType="#//NBCMCPComposites/@members.XNBCPartyIdentificationItem">
+      <MDMErrorReason id="469" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="470" typeCodeForComponentId="472" typeCodeForBusinessProxyId="471"/>
+      <baseTransactions id="473" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.updatePartyIdentification"/>
+    </members>
+    <members xsi:type="mdm:MDMMessage" name="XNBCPartyIdentificationItem" id="474" componentTypeMetadataId="475" errorReasonTpCdForFVERR="477" bObjId="476" lastUpdateDateBObjFieldId="478" lastUpdateUserBObjFieldId="479" historyActionCodeBObjFieldId="481" historyCreateDateBObjFieldId="482" historyEndDateBObjFieldId="484" historyCreatedByBObjFieldId="483" lastUpdateTxIdBObjFieldId="480" historyIdPkBObjFieldId="485">
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="PartyId" id="486" bObjFieldId="487">
+        <MDMErrorReason id="488" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="489" typeCodeForComponentId="491" typeCodeForBusinessProxyId="490"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IdentificationIdPK" id="528" bObjFieldId="529">
+        <MDMErrorReason id="530" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="531" typeCodeForComponentId="533" typeCodeForBusinessProxyId="532"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IdentificationType" id="890" bObjFieldId="891">
+        <MDMErrorReason id="892" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="893" typeCodeForComponentId="895" typeCodeForBusinessProxyId="894"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IdentificationValue" id="605" optional="true" bObjFieldId="606">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IdentificationNumber" id="514" bObjFieldId="515">
+        <MDMErrorReason id="516" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="517" typeCodeForComponentId="519" typeCodeForBusinessProxyId="518"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IdentificationStatusType" id="896" bObjFieldId="897">
+        <MDMErrorReason id="898" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="899" typeCodeForComponentId="901" typeCodeForBusinessProxyId="900"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IdentificationStatusValue" id="611" optional="true" bObjFieldId="612">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IdentificationExpiryDate" id="520" optional="true" bObjFieldId="521">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="StartDate" id="522" bObjFieldId="523">
+        <MDMErrorReason id="524" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="525" typeCodeForComponentId="527" typeCodeForBusinessProxyId="526"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="EndDate" id="534" bObjFieldId="535">
+        <MDMErrorReason id="536" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="537" typeCodeForComponentId="539" typeCodeForBusinessProxyId="538"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IdentificationDescription" id="552" bObjFieldId="553">
+        <MDMErrorReason id="554" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="555" typeCodeForComponentId="557" typeCodeForBusinessProxyId="556"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="LastUsedDate" id="564" bObjFieldId="565">
+        <MDMErrorReason id="566" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="567" typeCodeForComponentId="569" typeCodeForBusinessProxyId="568"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="LastVerifiedDate" id="570" bObjFieldId="571">
+        <MDMErrorReason id="572" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="573" typeCodeForComponentId="575" typeCodeForBusinessProxyId="574"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="SourceIdentifierType" id="948" optional="true" bObjFieldId="949">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="SourceIdentifierValue" id="617" optional="true" bObjFieldId="618">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="PartyIdentificationLastUpdateDt" id="587" bObjFieldId="588">
+        <MDMErrorReason id="589" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="590" typeCodeForComponentId="592" typeCodeForBusinessProxyId="591"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IssuingGeographicAreaTypeCode" id="593" bObjFieldId="594">
+        <MDMErrorReason id="595" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="596" typeCodeForComponentId="598" typeCodeForBusinessProxyId="597"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="IssuingGeographicAreaCode" id="599" bObjFieldId="600">
+        <MDMErrorReason id="601" messageKey="CoreUtils_PropertyNullErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.FVERR" typeCodeId="602" typeCodeForComponentId="604" typeCodeForBusinessProxyId="603"/>
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+    </members>
+    <members xsi:type="mdm:MDMMessage" name="NBCAddresses" id="655" componentTypeMetadataId="656" errorReasonTpCdForFVERR="658" bObjId="657" lastUpdateDateBObjFieldId="659" lastUpdateUserBObjFieldId="660" historyActionCodeBObjFieldId="662" historyCreateDateBObjFieldId="663" historyEndDateBObjFieldId="665" historyCreatedByBObjFieldId="664" lastUpdateTxIdBObjFieldId="661" historyIdPkBObjFieldId="666">
+      <MDMContainment name="TCRMAddressBObj" id="667" many="true" containedEntity="mdm://Party#//Party/@members.Address/@members.Address" bObjFieldId="668">
+        <MDMErrorReason id="669" messageKey="CoreUtils_ReferenceInvalid" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.DIERR" typeCodeId="670" typeCodeForComponentId="672" typeCodeForBusinessProxyId="671"/>
+      </MDMContainment>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="validateNBCAddresses" id="673" externalTxnKeyId="674" internalTxnId="676" businessInternalTxnId="677" businessTxReqRespInputId="678" businessTxReqRespOutputId="679" internalTxnKeyId="675" internalTxReqRespInputId="680" internalTxReqRespOutputId="681" responseType="#//NBCMCPComposites/@members.NBCAddresses" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="682" requestType="#//NBCMCPComposites/@members.NBCAddresses">
+      <MDMErrorReason id="683" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="684" typeCodeForComponentId="686" typeCodeForBusinessProxyId="685"/>
+    </members>
+    <members xsi:type="mdm:MDMMessage" name="XNBCInquiryParam" id="687" componentTypeMetadataId="688" errorReasonTpCdForFVERR="690" bObjId="689" lastUpdateDateBObjFieldId="691" lastUpdateUserBObjFieldId="692" historyActionCodeBObjFieldId="694" historyCreateDateBObjFieldId="695" historyEndDateBObjFieldId="697" historyCreatedByBObjFieldId="696" lastUpdateTxIdBObjFieldId="693" historyIdPkBObjFieldId="698">
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="XNBCTcrmParam" id="699" optional="true" bObjFieldId="700">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="XNBCTcrmParamValue" id="950" optional="true" bObjFieldId="951">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints" stringLength="40000"/>
+      </MDMProperty>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="updateNBCCodeTable" id="701" externalTxnKeyId="702" internalTxnId="704" businessInternalTxnId="705" businessTxReqRespInputId="706" businessTxReqRespOutputId="707" internalTxnKeyId="703" internalTxReqRespInputId="708" internalTxReqRespOutputId="709" responseType="#//NBCMCPComposites/@members.XNBCInquiryParam" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="710" requestType="#//NBCMCPComposites/@members.XNBCInquiryParam">
+      <MDMErrorReason id="711" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="712" typeCodeForComponentId="714" typeCodeForBusinessProxyId="713"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="refreshEBXCache" id="715" externalTxnKeyId="716" internalTxnId="718" businessInternalTxnId="719" businessTxReqRespInputId="720" businessTxReqRespOutputId="721" internalTxnKeyId="717" internalTxReqRespInputId="722" internalTxReqRespOutputId="723" responseType="#//NBCMCPComposites/@members.XNBCInquiryParam" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="724" requestType="#//NBCMCPComposites/@members.XNBCInquiryParam">
+      <MDMErrorReason id="725" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="726" typeCodeForComponentId="728" typeCodeForBusinessProxyId="727"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="addNBCPartyAddress" id="729" externalTxnKeyId="730" internalTxnId="732" businessInternalTxnId="733" businessTxReqRespInputId="734" businessTxReqRespOutputId="735" internalTxnKeyId="731" internalTxReqRespInputId="736" internalTxReqRespOutputId="737" responseType="mdm://Party#//Party/@members.PartyAddress" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="738" requestType="mdm://Party#//Party/@members.PartyAddress">
+      <MDMErrorReason id="739" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="740" typeCodeForComponentId="742" typeCodeForBusinessProxyId="741"/>
+      <baseTransactions id="743" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyAddress"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="addNBCPartyContactMethod" id="744" externalTxnKeyId="745" internalTxnId="747" businessInternalTxnId="748" businessTxReqRespInputId="749" businessTxReqRespOutputId="750" internalTxnKeyId="746" internalTxReqRespInputId="751" internalTxReqRespOutputId="752" responseType="mdm://Party#//Party/@members.PartyContactMethod" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="753" requestType="mdm://Party#//Party/@members.PartyContactMethod">
+      <MDMErrorReason id="754" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="755" typeCodeForComponentId="757" typeCodeForBusinessProxyId="756"/>
+      <baseTransactions id="758" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyContactMethod"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="addNBCPartyIdentification" id="759" externalTxnKeyId="760" internalTxnId="762" businessInternalTxnId="763" businessTxReqRespInputId="764" businessTxReqRespOutputId="765" internalTxnKeyId="761" internalTxReqRespInputId="766" internalTxReqRespOutputId="767" responseType="mdm://Party#//Party/@members.PartyIdentification" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="768" requestType="mdm://Party#//Party/@members.PartyIdentification">
+      <MDMErrorReason id="769" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="770" typeCodeForComponentId="772" typeCodeForBusinessProxyId="771"/>
+      <baseTransactions id="773" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyIdentification"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="addNBCPartySysKey" id="774" externalTxnKeyId="775" internalTxnId="777" businessInternalTxnId="778" businessTxReqRespInputId="779" businessTxReqRespOutputId="780" internalTxnKeyId="776" internalTxReqRespInputId="781" internalTxReqRespOutputId="782" responseType="mdm://Party#//Party/@members.PartyAdminSysKey" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="783" requestType="#//NBCMCPComposites/@members.XNBCPartySysKey">
+      <MDMErrorReason id="784" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.INSERR" typeCodeId="785" typeCodeForComponentId="787" typeCodeForBusinessProxyId="786"/>
+      <baseTransactions id="788" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyAdminSysKey"/>
+    </members>
+    <members xsi:type="mdm:MDMInquiry" name="getNBCAllPartyAddressesByIdentifier" id="789" externalTxnKeyId="790" internalTxnId="792" businessInternalTxnId="793" businessTxReqRespInputId="794" businessTxReqRespOutputId="795" internalTxnKeyId="791" internalTxReqRespInputId="796" internalTxReqRespOutputId="797" responseMany="true" responseType="mdm://Party#//Party/@members.PartyAddress" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="798">
+      <MDMErrorReason id="799" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="800" typeCodeForComponentId="802" typeCodeForBusinessProxyId="801"/>
+      <MDMParameter name="AdminSystemType" id="902" businessTxReqRespId="903" internalTxReqRespId="904"/>
+      <MDMParameter name="AdminPartyId" id="905" businessTxReqRespId="906" internalTxReqRespId="907"/>
+      <MDMParameter name="IdentificationType" id="908" businessTxReqRespId="909" internalTxReqRespId="910"/>
+      <MDMParameter name="IdentificationNumber" id="911" businessTxReqRespId="912" internalTxReqRespId="913"/>
+    </members>
+    <members xsi:type="mdm:MDMInquiry" name="getNBCAllPartyContactMethodsByIdentifier" id="803" externalTxnKeyId="804" internalTxnId="806" businessInternalTxnId="807" businessTxReqRespInputId="808" businessTxReqRespOutputId="809" internalTxnKeyId="805" internalTxReqRespInputId="810" internalTxReqRespOutputId="811" responseMany="true" responseType="mdm://Party#//Party/@members.PartyContactMethod" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="812">
+      <MDMErrorReason id="813" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="814" typeCodeForComponentId="816" typeCodeForBusinessProxyId="815"/>
+      <MDMParameter name="AdminSystemType" id="914" businessTxReqRespId="915" internalTxReqRespId="916"/>
+      <MDMParameter name="AdminPartyId" id="917" businessTxReqRespId="918" internalTxReqRespId="919"/>
+      <MDMParameter name="IdentificationType" id="920" businessTxReqRespId="921" internalTxReqRespId="922"/>
+      <MDMParameter name="IdentificationNumber" id="923" businessTxReqRespId="924" internalTxReqRespId="925"/>
+    </members>
+    <members xsi:type="mdm:MDMInquiry" name="getNBCAllPartyIdentificationsByIdentifier" id="817" externalTxnKeyId="818" internalTxnId="820" businessInternalTxnId="821" businessTxReqRespInputId="822" businessTxReqRespOutputId="823" internalTxnKeyId="819" internalTxReqRespInputId="824" internalTxReqRespOutputId="825" responseMany="true" responseType="#//NBCMCPComposites/@members.XNBCPartyIdentificationItem" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="826">
+      <MDMErrorReason id="827" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="828" typeCodeForComponentId="830" typeCodeForBusinessProxyId="829"/>
+      <MDMParameter name="AdminSystemType" id="926" businessTxReqRespId="927" internalTxReqRespId="928"/>
+      <MDMParameter name="AdminPartyId" id="929" businessTxReqRespId="930" internalTxReqRespId="931"/>
+      <MDMParameter name="IdentificationType" id="932" businessTxReqRespId="933" internalTxReqRespId="934"/>
+      <MDMParameter name="IdentificationNumber" id="935" businessTxReqRespId="936" internalTxReqRespId="937"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="removeNBCPartySysKey" id="831" externalTxnKeyId="832" internalTxnId="834" businessInternalTxnId="835" businessTxReqRespInputId="836" businessTxReqRespOutputId="837" internalTxnKeyId="833" internalTxReqRespInputId="838" internalTxReqRespOutputId="839" responseType="mdm://Party#//Party/@members.PartyAdminSysKey" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="840" actionCategory="update" requestType="#//NBCMCPComposites/@members.XNBCPartySysKey">
+      <MDMErrorReason id="841" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.UPDERR" typeCodeId="842" typeCodeForComponentId="844" typeCodeForBusinessProxyId="843"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="updateNBCPartyAddress" id="845" externalTxnKeyId="846" internalTxnId="848" businessInternalTxnId="849" businessTxReqRespInputId="850" businessTxReqRespOutputId="851" internalTxnKeyId="847" internalTxReqRespInputId="852" internalTxReqRespOutputId="853" responseType="mdm://Party#//Party/@members.PartyAddress" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="854" actionCategory="update" requestType="mdm://Party#//Party/@members.PartyAddress">
+      <MDMErrorReason id="855" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.UPDERR" typeCodeId="856" typeCodeForComponentId="858" typeCodeForBusinessProxyId="857"/>
+      <baseTransactions id="859" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.updatePartyAddress"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="updateNBCPartyContactMethod" id="860" externalTxnKeyId="861" internalTxnId="863" businessInternalTxnId="864" businessTxReqRespInputId="865" businessTxReqRespOutputId="866" internalTxnKeyId="862" internalTxReqRespInputId="867" internalTxReqRespOutputId="868" responseType="mdm://Party#//Party/@members.PartyContactMethod" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="869" actionCategory="update" requestType="mdm://Party#//Party/@members.PartyContactMethod">
+      <MDMErrorReason id="870" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.UPDERR" typeCodeId="871" typeCodeForComponentId="873" typeCodeForBusinessProxyId="872"/>
+      <baseTransactions id="874" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.updatePartyContactMethod"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="updateNBCPartyIdentification" id="875" externalTxnKeyId="876" internalTxnId="878" businessInternalTxnId="879" businessTxReqRespInputId="880" businessTxReqRespOutputId="881" internalTxnKeyId="877" internalTxReqRespInputId="882" internalTxReqRespOutputId="883" responseType="mdm://Party#//Party/@members.PartyIdentification" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="884" actionCategory="view" requestType="mdm://Party#//Party/@members.PartyIdentification">
+      <MDMErrorReason id="885" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="886" typeCodeForComponentId="888" typeCodeForBusinessProxyId="887"/>
+      <baseTransactions id="889" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.updatePartyIdentification"/>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="regenerateQualityStatusAlert" id="952" externalTxnKeyId="953" internalTxnId="955" businessInternalTxnId="956" businessTxReqRespInputId="957" businessTxReqRespOutputId="958" internalTxnKeyId="954" internalTxReqRespInputId="959" internalTxReqRespOutputId="960" responseType="mdm://Party#//Party/@members.Party" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="961" actionCategory="update" requestType="mdm://Party#//Party/@members.Party">
+      <MDMErrorReason id="962" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.UPDERR" typeCodeId="963" typeCodeForComponentId="965" typeCodeForBusinessProxyId="964"/>
+      <baseTransactions id="966" transaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.updateParty"/>
+    </members>
+    <members xsi:type="mdm:MDMMessage" name="XNBCUnlinkingParty" id="967" componentTypeMetadataId="968" errorReasonTpCdForFVERR="970" bObjId="969" lastUpdateDateBObjFieldId="971" lastUpdateUserBObjFieldId="972" historyActionCodeBObjFieldId="974" historyCreateDateBObjFieldId="975" historyEndDateBObjFieldId="977" historyCreatedByBObjFieldId="976" lastUpdateTxIdBObjFieldId="973" historyIdPkBObjFieldId="978">
+      <MDMProperty xsi:type="mdm:MDMAttribute" name="EventIdPk" id="979" optional="true" bObjFieldId="980">
+        <MDMAttributeConstraints xsi:type="mdm:MDMStringAttributeConstraints"/>
+      </MDMProperty>
+      <MDMContainment name="TCRMPartyBObj" id="981" containedEntity="mdm://Party#//Party/@members.Party" bObjFieldId="982">
+        <MDMErrorReason id="983" messageKey="CoreUtils_ReferenceInvalid" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.DIERR" typeCodeId="984" typeCodeForComponentId="986" typeCodeForBusinessProxyId="985"/>
+      </MDMContainment>
+    </members>
+    <members xsi:type="mdm:MDMMessage" name="XNBCUnlinkedPartyList" id="987" componentTypeMetadataId="988" errorReasonTpCdForFVERR="990" bObjId="989" lastUpdateDateBObjFieldId="991" lastUpdateUserBObjFieldId="992" historyActionCodeBObjFieldId="994" historyCreateDateBObjFieldId="995" historyEndDateBObjFieldId="997" historyCreatedByBObjFieldId="996" lastUpdateTxIdBObjFieldId="993" historyIdPkBObjFieldId="998">
+      <MDMContainment name="TCRMPartyBObj" id="999" many="true" containedEntity="mdm://Party#//Party/@members.Party" bObjFieldId="1000">
+        <MDMErrorReason id="1001" messageKey="CoreUtils_ReferenceInvalid" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.DIERR" typeCodeId="1002" typeCodeForComponentId="1004" typeCodeForBusinessProxyId="1003"/>
+      </MDMContainment>
+    </members>
+    <members xsi:type="mdm:MDMTxn" name="SynchronizeUnlinkKeys" id="1005" externalTxnKeyId="1006" internalTxnId="1008" businessInternalTxnId="1009" businessTxReqRespInputId="1010" businessTxReqRespOutputId="1011" internalTxnKeyId="1007" internalTxReqRespInputId="1012" internalTxReqRespOutputId="1013" responseType="#//NBCMCPComposites/@members.XNBCUnlinkKeyAssignment" implementation="BusinessProxy" componentTypeMetadataIdForBusinessProxies="1014" actionCategory="view" requestType="#//NBCMCPComposites/@members.XNBCUnlinkKeyAssignment">
+      <MDMErrorReason id="1015" messageKey="CoreUtils_TransactionErr" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.READERR" typeCodeId="1016" typeCodeForComponentId="1018" typeCodeForBusinessProxyId="1017"/>
+    </members>
+    <members xsi:type="mdm:MDMMessage" name="XNBCUnlinkKeyAssignment" id="1019" componentTypeMetadataId="1020" errorReasonTpCdForFVERR="1022" bObjId="1021" lastUpdateDateBObjFieldId="1023" lastUpdateUserBObjFieldId="1024" historyActionCodeBObjFieldId="1026" historyCreateDateBObjFieldId="1027" historyEndDateBObjFieldId="1029" historyCreatedByBObjFieldId="1028" lastUpdateTxIdBObjFieldId="1025" historyIdPkBObjFieldId="1030">
+      <MDMContainment name="XNBCUnlinkingPartyBObj" id="1031" containedEntity="#//NBCMCPComposites/@members.XNBCUnlinkingParty" bObjFieldId="1032">
+        <MDMErrorReason id="1033" messageKey="CoreUtils_ReferenceInvalid" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.DIERR" typeCodeId="1034" typeCodeForComponentId="1036" typeCodeForBusinessProxyId="1035"/>
+      </MDMContainment>
+      <MDMContainment name="XNBCUnlinkedPartyListBObj" id="1037" containedEntity="#//NBCMCPComposites/@members.XNBCUnlinkedPartyList" bObjFieldId="1038">
+        <MDMErrorReason id="1039" messageKey="CoreUtils_ReferenceInvalid" modelReadOnly="true" errorType="mdm://MDMSharedResources#//@MDMErrorTypeCode.DIERR" typeCodeId="1040" typeCodeForComponentId="1042" typeCodeForBusinessProxyId="1041"/>
+      </MDMContainment>
+    </members>
+  </MDMPackage>
+</mdm:MDMModule>
