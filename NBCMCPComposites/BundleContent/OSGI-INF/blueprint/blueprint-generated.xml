@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" default-activation="eager">
+
+    <reference id="configManager" interface="com.ibm.mdm.server.config.api.ConfigManager" activation="eager" timeout="60000"/>
+
+    <service id="XSDFinderService" interface="com.dwl.base.xml.XSDFinder" activation="lazy">
+        <service-properties>
+            <entry key="CoreSchema" value="false"/>
+        </service-properties>
+        <bean class="com.dwl.base.xml.XSDFinderImpl">
+            <property name="bpContainer" ref="blueprintContainer"/>
+            <property name="bundle" ref="blueprintBundle"/>
+        </bean>
+    </service>
+
+    <service id="BusinessProxy.maintainNBCContract" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="maintainNBCContract"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.MaintainNBCContractCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.removeNBCQualityStatusAlert" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="removeNBCQualityStatusAlert"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.RemoveNBCQualityStatusAlertCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.getNBCAllPartyAddressesByIdentifierCR" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="getNBCAllPartyAddressesByIdentifierCR"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.GetNBCAllPartyAddressesByIdentifierCRCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.getNBCAllPartyContactMethodsByIdentifierCR" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="getNBCAllPartyContactMethodsByIdentifierCR"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.GetNBCAllPartyContactMethodsByIdentifierCRCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.MaintainNBCEmail" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="MaintainNBCEmail"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.MaintainNBCEmailCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.getNBCAllPartyIdentificationsByIdentifierCR" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="getNBCAllPartyIdentificationsByIdentifierCR"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.GetNBCAllPartyIdentificationsByIdentifierCRCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.addNBCPartySysKeyCR" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="addNBCPartySysKeyCR"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.AddNBCPartySysKeyCRCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.removeNBCPartySysKeyCR" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="removeNBCPartySysKeyCR"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.RemoveNBCPartySysKeyCRCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.addNBCPartyContactMethodCR" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="addNBCPartyContactMethodCR"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.AddNBCPartyContactMethodCRCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.updateNBCPartyContactMethodCR" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="updateNBCPartyContactMethodCR"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.UpdateNBCPartyContactMethodCRCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.addNBCPartyAddressCR" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="addNBCPartyAddressCR"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.AddNBCPartyAddressCRCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.updateNBCPartyAddressCR" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="updateNBCPartyAddressCR"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.UpdateNBCPartyAddressCRCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.addNBCPartyIdentificationCR" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="addNBCPartyIdentificationCR"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.AddNBCPartyIdentificationCRCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.updateNBCPartyIdentificationCR" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="updateNBCPartyIdentificationCR"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.UpdateNBCPartyIdentificationCRCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.validateNBCAddresses" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="validateNBCAddresses"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.ValidateNBCAddressesCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.updateNBCCodeTable" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="updateNBCCodeTable"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.UpdateNBCCodeTableCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.refreshEBXCache" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="refreshEBXCache"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.RefreshEBXCacheCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.addNBCPartyAddress" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="addNBCPartyAddress"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.AddNBCPartyAddressCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.addNBCPartyContactMethod" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="addNBCPartyContactMethod"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.AddNBCPartyContactMethodCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.addNBCPartyIdentification" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="addNBCPartyIdentification"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.AddNBCPartyIdentificationCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.addNBCPartySysKey" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="addNBCPartySysKey"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.AddNBCPartySysKeyCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.getNBCAllPartyAddressesByIdentifier" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="getNBCAllPartyAddressesByIdentifier"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.GetNBCAllPartyAddressesByIdentifierCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.getNBCAllPartyContactMethodsByIdentifier" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="getNBCAllPartyContactMethodsByIdentifier"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.GetNBCAllPartyContactMethodsByIdentifierCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.getNBCAllPartyIdentificationsByIdentifier" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="getNBCAllPartyIdentificationsByIdentifier"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.GetNBCAllPartyIdentificationsByIdentifierCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.removeNBCPartySysKey" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="removeNBCPartySysKey"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.RemoveNBCPartySysKeyCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.updateNBCPartyAddress" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="updateNBCPartyAddress"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.UpdateNBCPartyAddressCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.updateNBCPartyContactMethod" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="updateNBCPartyContactMethod"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.UpdateNBCPartyContactMethodCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.updateNBCPartyIdentification" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="updateNBCPartyIdentification"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.UpdateNBCPartyIdentificationCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.regenerateQualityStatusAlert" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="regenerateQualityStatusAlert"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.RegenerateQualityStatusAlertCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+    <service id="BusinessProxy.SynchronizeUnlinkKeys" interface="com.ibm.mdm.common.servicefactory.api.BusinessProxyFactory" ranking="10">
+        <service-properties>
+            <entry key="transaction.name" value="SynchronizeUnlinkKeys"/>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.servicefactory.BusinessProxyFactoryImpl">
+            <argument type="java.lang.Class" value="ca.nbc.mcp.mdm.compositeTxn.compositeTxn.SynchronizeUnlinkKeysCompositeTxnBP"/>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+    
+
+    <service id="Controller.NBCMCPComposites" interface="ca.nbc.mcp.mdm.compositeTxn.interfaces.NBCMCPCompositesFinder">
+        <service-properties>
+            <entry key="osgi.jndi.service.name">
+                <list>
+                    <value>getNBCPartyIdByIdentifier</value>
+                    <value>getNBCQualityStatusAlertByBusinessKeys</value>
+                </list>
+            </entry>
+        </service-properties>
+        <bean class="ca.nbc.mcp.mdm.compositeTxn.controller.NBCMCPCompositesFinderImpl" />
+    </service>
+    
+  
+
+  
+
+
+    <service interface="com.ibm.mdm.common.bobj.api.BObjFactoryService" ranking="0">
+        <service-properties>
+            <entry key="business.object">
+                <list>
+                    <value>EmailUpdateBObj</value>
+                    <value>XNBCPartyMatchKeyBObj</value>
+                    <value>XNBCPartySysKeyBObj</value>
+                    <value>XNBCPartyIdentificationItemBObj</value>
+                    <value>NBCAddressesBObj</value>
+                    <value>XNBCInquiryParamBObj</value>
+                    <value>XNBCUnlinkingPartyBObj</value>
+                    <value>XNBCUnlinkedPartyListBObj</value>
+                    <value>XNBCUnlinkKeyAssignmentBObj</value>
+                </list>
+            </entry>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.bobj.BObjFactoryServiceImpl">
+            <argument>
+                <map key-type="java.lang.String" value-type="java.lang.Class">
+                    <entry key="EmailUpdateBObj" value="ca.nbc.mcp.mdm.compositeTxn.component.EmailUpdateBObj"/>
+                    <entry key="XNBCPartyMatchKeyBObj" value="ca.nbc.mcp.mdm.compositeTxn.component.XNBCPartyMatchKeyBObj"/>
+                    <entry key="XNBCPartySysKeyBObj" value="ca.nbc.mcp.mdm.compositeTxn.component.XNBCPartySysKeyBObj"/>
+                    <entry key="XNBCPartyIdentificationItemBObj" value="ca.nbc.mcp.mdm.compositeTxn.component.XNBCPartyIdentificationItemBObj"/>
+                    <entry key="NBCAddressesBObj" value="ca.nbc.mcp.mdm.compositeTxn.component.NBCAddressesBObj"/>
+                    <entry key="XNBCInquiryParamBObj" value="ca.nbc.mcp.mdm.compositeTxn.component.XNBCInquiryParamBObj"/>
+                    <entry key="XNBCUnlinkingPartyBObj" value="ca.nbc.mcp.mdm.compositeTxn.component.XNBCUnlinkingPartyBObj"/>
+                    <entry key="XNBCUnlinkedPartyListBObj" value="ca.nbc.mcp.mdm.compositeTxn.component.XNBCUnlinkedPartyListBObj"/>
+                    <entry key="XNBCUnlinkKeyAssignmentBObj" value="ca.nbc.mcp.mdm.compositeTxn.component.XNBCUnlinkKeyAssignmentBObj"/>
+                </map>
+            </argument>
+            <argument ref="blueprintBundle"/>
+        </bean>
+    </service>
+
+
+
+    <service id="ComponentFactoryService" interface="com.ibm.mdm.common.component.api.ComponentFactoryService">
+        <service-properties>
+            <entry key="business.component">
+                <list>
+                    <value>nbcmcpcomposites_component</value>
+                </list>
+            </entry>
+        </service-properties>
+        <bean class="com.ibm.mdm.common.component.ComponentFactoryServiceImpl">
+            <argument>
+                <map>
+                    <entry key="nbcmcpcomposites_component">
+                      <bean class="ca.nbc.mcp.mdm.compositeTxn.component.NBCMCPCompositesComponent"/>
+                    </entry>
+                </map>
+            </argument>
+            <argument ref="blueprintContainer"/>
+        </bean>
+    </service>
+
+
+</blueprint>
