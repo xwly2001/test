@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdm:MDMModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdm="http://www.ibm.com/xmlns/prod/mdm/tools/model/core_v6.ecore" name="NBCMCPCustomization" id="1" customNature="module" serviceNamespace="http://mdm.mcp.nbc.ca" implPackageName="ca.nbc.mcp.mdm" componentTypeMetadataIdForComponent="2" componentTypeMetadataIdForController="3" startId="1310000" maxOffset="99999" MDMApplication="mdm://MDMSharedResources#/" domain="NBCMCPPartyData" asiDefinitionRequestAdapterId="4" asiDefinitionResponseAdapterId="5">
+  <MDMPackage name="NBCMCPCustomization" id="6" componentTypeMetadataIdForComponent="7" componentTypeMetadataIdForController="8">
+    <members xsi:type="mdm:MDMBehaviorExtension" name="NBCMCPPreUpdatePartyContactMethodExt" id="9" componentTypeMetadataId="10">
+      <MDMTriggerEvent xsi:type="mdm:MDMActionEvent" name="PreUpdatePartyContactMethodExt" id="11" pre="true" baseExtSetCondValId="12" baseCondValTypeId="13" triggerExtSetCondValId="14" lineOfBusinessCondValTypeId="15" lineOfBusinessExtSetCondValId="16" geographicalRegionCondValTypeId="17" geographicalRegionExtSetCondValId="18" companyCondValTypeId="19" companyExtSetCondValId="20" AbstractMDMTransaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.updatePartyContactMethod"/>
+    </members>
+    <members xsi:type="mdm:MDMBehaviorExtension" name="NBCMCPPreUpdatePartyExt" id="21" componentTypeMetadataId="22">
+      <MDMTriggerEvent xsi:type="mdm:MDMActionEvent" name="PreUpdatePartyExt" id="23" pre="true" baseExtSetCondValId="24" baseCondValTypeId="25" triggerExtSetCondValId="26" lineOfBusinessCondValTypeId="27" lineOfBusinessExtSetCondValId="28" geographicalRegionCondValTypeId="29" geographicalRegionExtSetCondValId="30" companyCondValTypeId="31" companyExtSetCondValId="32" AbstractMDMTransaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.updateParty"/>
+    </members>
+    <members xsi:type="mdm:MDMBehaviorExtension" name="NBCMCPPreAddPartyContactMethodExt" id="33" componentTypeMetadataId="34">
+      <MDMTriggerEvent xsi:type="mdm:MDMTransactionEvent" name="PreAddPartyContactMethodExt" id="35" pre="true" baseExtSetCondValId="36" baseCondValTypeId="37" triggerExtSetCondValId="38" lineOfBusinessCondValTypeId="39" lineOfBusinessExtSetCondValId="40" geographicalRegionCondValTypeId="41" geographicalRegionExtSetCondValId="42" companyCondValTypeId="43" companyExtSetCondValId="44" AbstractMDMTransaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyContactMethod"/>
+    </members>
+    <members xsi:type="mdm:MDMBehaviorExtension" name="NBCMCPPreAddPCTExt" id="45" componentTypeMetadataId="46">
+      <MDMTriggerEvent xsi:type="mdm:MDMActionEvent" name="PreAddPCTExt" id="47" pre="true" baseExtSetCondValId="48" baseCondValTypeId="49" triggerExtSetCondValId="50" lineOfBusinessCondValTypeId="51" lineOfBusinessExtSetCondValId="52" geographicalRegionCondValTypeId="53" geographicalRegionExtSetCondValId="54" companyCondValTypeId="55" companyExtSetCondValId="56" AbstractMDMTransaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyContactMethod"/>
+    </members>
+    <members xsi:type="mdm:MDMBehaviorExtension" name="NBCPreviewCollapseMultipleParties" id="57" componentTypeMetadataId="58">
+      <MDMTriggerEvent xsi:type="mdm:MDMTransactionEvent" name="PreviewCollapseMultipleParties" id="59" pre="true" baseExtSetCondValId="60" baseCondValTypeId="61" triggerExtSetCondValId="62" lineOfBusinessCondValTypeId="63" lineOfBusinessExtSetCondValId="64" geographicalRegionCondValTypeId="65" geographicalRegionExtSetCondValId="66" companyCondValTypeId="67" companyExtSetCondValId="68" AbstractMDMTransaction="mdm:MDMTxn mdm://Party#//ComparativePreviewCollapseMultiplePartiesBP/@members.comparativePreviewCollapseMultipleParties"/>
+    </members>
+    <members xsi:type="mdm:MDMBehaviorExtension" name="NBCMCPPreCollapseMultipleParties" id="69" componentTypeMetadataId="70">
+      <MDMTriggerEvent xsi:type="mdm:MDMActionEvent" name="PreCollapseMultipleParties" id="71" pre="true" baseExtSetCondValId="72" baseCondValTypeId="73" triggerExtSetCondValId="74" lineOfBusinessCondValTypeId="75" lineOfBusinessExtSetCondValId="76" geographicalRegionCondValTypeId="77" geographicalRegionExtSetCondValId="78" companyCondValTypeId="79" companyExtSetCondValId="80" AbstractMDMTransaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.collapseMultipleParties"/>
+    </members>
+    <members xsi:type="mdm:MDMBehaviorExtension" name="NBCMCPPreInactiveParty" id="81" componentTypeMetadataId="82">
+      <MDMTriggerEvent xsi:type="mdm:MDMActionEvent" name="PreInactiveParty" id="83" pre="true" baseExtSetCondValId="84" baseCondValTypeId="85" triggerExtSetCondValId="86" lineOfBusinessCondValTypeId="87" lineOfBusinessExtSetCondValId="88" geographicalRegionCondValTypeId="89" geographicalRegionExtSetCondValId="90" companyCondValTypeId="91" companyExtSetCondValId="92" AbstractMDMTransaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.inactivateParty"/>
+    </members>
+    <members xsi:type="mdm:MDMBehaviorExtension" name="NBCMCPPreAddPartyAddressExt" id="93" componentTypeMetadataId="94">
+      <MDMTriggerEvent xsi:type="mdm:MDMActionEvent" name="PreAddPartyAddressExt" id="95" pre="true" baseExtSetCondValId="96" baseCondValTypeId="97" triggerExtSetCondValId="98" lineOfBusinessCondValTypeId="99" lineOfBusinessExtSetCondValId="100" geographicalRegionCondValTypeId="101" geographicalRegionExtSetCondValId="102" companyCondValTypeId="103" companyExtSetCondValId="104" AbstractMDMTransaction="mdm:MDMTxn mdm://Party#//CoreParty/@members.addPartyAddress"/>
+    </members>
+  </MDMPackage>
+</mdm:MDMModule>
